@@ -6,7 +6,7 @@ import { Themes } from './assets/Themes';
 export default function App() {
   let [fontsLoaded] = useFonts({
     Sydney: require('./assets/Fonts/Sydney-Serial-Regular.ttf'),
-    'Sydney-Bold': require('./assets/Fonts/Sydney-Serial-Bold.ttf'),
+    SydneyBold: require('./assets/Fonts/Sydney-Serial-Bold.ttf'),
   });
   if (!fontsLoaded) return <AppLoading />;
   /* ^Don't mind/edit the code above, it's there to load the font for you! */
