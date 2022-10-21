@@ -1,7 +1,13 @@
 import AppLoading from 'expo-app-loading';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
 import { Themes } from './assets/Themes';
+import { Platform } from 'react-native';
+import Navigation from './components/Navigation';
+import MTL from './components/MTL';
+import Audio from './components/Audio'
+import Footer from './components/Footer';
+
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -15,29 +21,43 @@ export default function App() {
 
   /* insert your code here */
 
+
   return (
-    <View style={styles.container}>
-      <Text
-        style={{
-          fontFamily: 'Sydney', // test to see if the font is loaded, feel free to remove this
-        }}>
-        Open up App.js to start working on your app!
-      </Text>
-      <Text
-        style={{
-          fontFamily: 'Sydney-Bold', // test to see if the font is loaded, feel free to remove this
-        }}>
-        ~Good luck~
-      </Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+  
+      <Navigation/>
+      <View style={styles.body}>
+        <MTL />
+        <Audio />
+      </View>
+      <Footer></Footer>
+    </SafeAreaView>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: Themes.light.bg,
+    paddingTop: '5%',
+    flexDirection: "column",
+    flex: 1,
   },
+  body: {
+    flex: 2,
+    alignItems:'center',
+    width: '100%'
+  },
+  navbar: {
+    flex: 1, 
+  }, 
+  profiilepic: {
+    flex: 1, 
+  }, 
+  audioclip: {
+    flex: 1,
+
+  }, 
 });
